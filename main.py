@@ -22,7 +22,6 @@ def error(bot, update, error):
 
 def main():
     """Start the bot."""
-    # Create the EventHandler and pass it your bot's token.
     updater = Updater(bot_token)
 
     # Get the dispatcher to register handlers
@@ -35,6 +34,8 @@ def main():
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.photo, echoPhoto))
+    dp.add_handler(MessageHandler(Filters.video, echoVideo))
+    dp.add_handler(MessageHandler(Filters.audio, echoAudio))
     dp.add_handler(MessageHandler(Filters.text, echoText))
 
     # log all errors
